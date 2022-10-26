@@ -79,7 +79,7 @@ class PlayerSerializer(serializers.ModelSerializer):
 class PlayerSerializerSimple(serializers.ModelSerializer):
     class Meta:
         model = Player
-        fields = ['id', 'username', 'color', 'x', 'y']
+        fields = ['id', 'username', 'color', 'x', 'y', 'dx', 'dy']
 
 
 class AssistantSerializer(serializers.ModelSerializer):

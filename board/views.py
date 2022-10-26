@@ -146,8 +146,8 @@ class ProcessPlayerTask(APIView):
                     if item := cell.items.first():
                         # Warp trap
                         if item.type == 'FAKE':
-                            task.error = '가짜 유물에 의해 워프당했습니다.'
-                            player.x, player.y = 15, 15
+                            task.error = '워프 트랩에 의해 워프당했습니다.'
+                            player.x, player.y = 17, 30
                         # Acquire artifacts
                         if item.type in ('RED', 'BLUE', 'GREEN', 'YELLOW') and item.type not in player.inventory:
                             if item.type not in player.unlocked:
@@ -169,6 +169,7 @@ class ProcessPlayerTask(APIView):
                     task.error = '통신탑이 근처에 없습니다'
 
             # Done Task
+            # TODO: create new task instead of update for maximum id
             task.done = True
             task.save()
             player.save()
